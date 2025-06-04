@@ -97,8 +97,7 @@
         text-decoration: underline;
       }
 
-      span
-      {
+      span {
         color: red;
       }
     </style>
@@ -109,7 +108,12 @@
         <h1>Log In</h1>
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="aba@gmail.com" />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="aba@gmail.com"
+        />
         <span id="erroremail" class="error"></span>
 
         <label for="password">Password</label>
@@ -128,8 +132,8 @@
       function validate(event) {
         event.preventDefault();
 
-        let errorCount=document.getElementsByClassName("error");
-        errorCount=0;
+        let errorCount = document.getElementsByClassName("error");
+        errorCount = 0;
 
         let email = document.getElementById("email").value.trim();
         let password = document.getElementById("password").value.trim();
@@ -137,39 +141,33 @@
         let emailError = document.getElementById("erroremail");
         let passwordError = document.getElementById("errorpassword");
 
-       
         emailError.textContent = "";
 
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         // emailvalidation
-        if (email=="") {
+        if (email == "") {
           emailError.textContent = "required email.";
           errorCount++;
-        }
-
-        else if (!emailRegex.test(email)) {
+        } else if (!emailRegex.test(email)) {
           emailError.textContent = "Please enter a valid email address.";
           errorCount++;
         }
 
-                passwordError.textContent = "";
+        passwordError.textContent = "";
 
         //password validation
-        if (password=="") {
+        if (password == "") {
           passwordError.textContent = "required password";
           errorCount++;
-        }
-
-        else if (password.length < 8) {
+        } else if (password.length < 8) {
           passwordError.textContent = "Password must be at least 8 characters.";
           errorCount++;
         }
 
-        if(errorCount!=0){
+        if (errorCount != 0) {
           return false;
-        }
-        else{
+        } else {
           return true;
         }
       }
