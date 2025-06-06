@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pharmalyze</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   </head>
   <body>
     <!-- header/nav -->
     <header>
-      <nav>
-        
+      <nav> 
+        <div id="menu-toggle" class="fa fa-bars" onclick="toggleMenu()"></div>
+       
         <div id="logo">Pharmalyze</div>
        
         <div class="nav-links">
@@ -119,5 +121,34 @@
         <p>&copy; 2025 Pharmalyze. All rights reserved.</p>
       </div>
     </footer>
+
+    <!--javascript code-->
+
+ <script>
+  
+  function toggleMenu()
+   {
+    const navLinks = document.querySelector(".nav-links"); 
+    navLinks.classList.toggle("active");
+  }
+
+ 
+  // Close menu when a nav link is clicked
+  document.querySelectorAll(".nav-links a").forEach(link =>
+   {
+    link.addEventListener("click", () =>
+     {
+      const navLinks = document.querySelector(".nav-links");
+      if (navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+      }
+    });
+  });
+
+</script>
+
+
+
+
   </body>
 </html>
