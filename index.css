@@ -338,71 +338,68 @@ main {
     text-align: left;
   }
   .hero-image img {
-    .hero-image img {
-      display: none;
-    }
+    display: none;
+  }
+}
+/*tablet*/
+@media (min-width: 700px) and (max-width: 981px) {
+  nav {
+    padding: 1rem 1.5rem;
+    flex-wrap: nowrap;
   }
 
-  /*tablet*/
-  @media (min-width: 700px) and (max-width: 981px) {
-    nav {
-      padding: 1rem 1.5rem;
-      flex-wrap: nowrap;
-    }
-
-    #logo {
-      font-size: 22px;
-      padding-left: 0;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      gap: 0.6rem;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-
-    .nav-link {
-      font-size: 15px;
-      padding: 6px 10px;
-    }
-
-    .nav-button {
-      font-size: 14px;
-      padding: 6px 10px;
-      white-space: nowrap;
-    }
-
-    a {
-      text-wrap: nowrap;
-    }
+  #logo {
+    font-size: 22px;
+    padding-left: 0;
+    white-space: nowrap;
   }
 
-  @media (max-width: 1550px) {
-    .services {
-      height: auto;
-      padding: 2rem 1rem;
-    }
+  .nav-links {
+    gap: 0.6rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
-    .services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 0;
-    }
+  .nav-link {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
 
-    .service-box {
-      margin: 0 auto;
-      width: 100%;
-    }
+  .nav-button {
+    font-size: 14px;
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
 
-    .service-box h2 {
-      font-size: 20px;
-    }
+  a {
+    text-wrap: nowrap;
+  }
+}
 
-    .service-box p {
-      font-size: 16px;
-    }
+@media (max-width: 1550px) {
+  .services {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0;
+  }
+
+  .service-box {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .service-box h2 {
+    font-size: 20px;
+  }
+
+  .service-box p {
+    font-size: 16px;
   }
 }
