@@ -46,6 +46,7 @@
         margin-bottom: 5px;
         color: #333;
         font-weight: bold;
+        margin-top: 20px;
       }
 
       input[type="text"],
@@ -53,7 +54,6 @@
       input[type="password"] {
         width: 100%;
         padding: 10px 12px;
-        margin-bottom: 20px;
         border: 1.5px solid #ccc;
         border-radius: 10px;
         font-size: 16px;
@@ -66,7 +66,7 @@
         box-shadow: 0 0 5px rgba(51, 67, 243, 0.4);
       }
 
-      button {
+      #button {
         width: 100%;
         padding: 12px;
         background-color: #3343f3;
@@ -75,10 +75,11 @@
         border: none;
         border-radius: 10px;
         cursor: pointer;
+        margin-top: 20px;
         transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
-      button:hover {
+      #button:hover {
         background-color: #101c9a;
         transform: scale(1.05);
       }
@@ -106,6 +107,9 @@
 
   <body>
     <form action="" method="post" onsubmit="Validate(event)">
+      <div class="image">
+        <img src="" alt="">
+      </div>
       <div class="container">
         <h1>Sign Up</h1>
 
@@ -130,7 +134,7 @@
         <input type="password" id="confirm-password" name="confirm-password" />
         <span id="confirmerror" class="error"></span>
 
-        <button type="submit">Register</button>
+        <input id="button" type="submit" value="Sign In">
 
         <div class="sign_intext">
           Already have an account? <a href="sign_in.html">Sign in</a>
@@ -141,8 +145,7 @@
     <!-- scripting -->
     <script>
       function Validate(event) {
-        let errorCount = document.getElementsByClassName("error");
-        errorCount = 0;
+        let errorCount = 0;
 
         let name = document.getElementById("name").value.trim();
         let nameerror = document.getElementById("nameerror");
@@ -160,8 +163,8 @@
         if (email === "") {
           emailerror.textContent = "Cannot be empty";
           errorCount++;
-        } else if ((!/^[a-z]+[A-Z]+[0-9]+\@[a-z]{5}\.[a-z]{3}$/).test(email)) {
-          emailerror.textContent = "Didn't match the pattern";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailerror.textContent = "Invalid email format";
           errorCount++;
         }
 
@@ -173,7 +176,7 @@
           passworderror.textContent = "Password cannot be empty";
           errorCount++;
         } else if (password.length < 8) {
-          passworderror.textContent = "Password must be atleast 8 character";
+          passworderror.textContent = "Password must be at least 8 characters";
           errorCount++;
         }
 
@@ -183,15 +186,16 @@
         confirmerror.textContent = "";
 
         if (confirm_password === "") {
-          confirmerror.textContent = "Cannot be emptied";
+          confirmerror.textContent = "Cannot be empty";
           errorCount++;
         } else if (password !== confirm_password) {
-          confirmerror.textContent = "Password didnot match";
+          confirmerror.textContent = "Passwords do not match";
           errorCount++;
         }
 
         if (errorCount > 0) {
           event.preventDefault();
+          return false;
         }
       }
     </script>
