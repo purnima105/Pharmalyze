@@ -100,11 +100,11 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
-.hero-image ,
-.hero-text{
+.hero-image,
+.hero-text {
   flex: 1;
   min-width: 200px;
 }
@@ -269,70 +269,56 @@ main {
   color: #aaa;
 }
 
-#menu-toggle
-{
+#menu-toggle {
   display: flex;
   display: none;
   cursor: pointer;
 }
 
-@media(max-width: 698px)
-{
-  nav 
-  {
+@media (max-width: 698px) {
+  nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
   }
-  #menu-toggle 
-  {
+  #menu-toggle {
     display: block;
   }
-  #logo
-   {
+  #logo {
     font-size: 24px;
     padding-left: 0;
   }
 
-  .nav-links 
-  {
+  .nav-links {
     display: none;
     flex-direction: column;
     background-color: #fff;
     position: absolute;
     top: 70px;
     left: 0;
-    right: 0;
-    padding: 1rem 2rem;
+    width: 20%;
+    
+    padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+     border-right: 1px solid #ccc;
+     
   }
 
-
- .nav-links.active
-  {
+  .nav-links.active {
     display: flex;
   }
 
-   
-    
-  .nav-button
-  {
+  .nav-button {
     width: 100%;
     text-align: left;
-
   }
-
-
+  .hero-image img 
+  {
+    display: none;
+  }
 }
-
-  
-
-  
-
-
-
 
 /*tablet*/
 @media (min-width: 700px) and (max-width: 981px) {
@@ -370,40 +356,29 @@ main {
   }
 }
 
-
-
-@media (max-width: 1550px)
- {
-  
-  .services 
-  {
+@media (max-width: 1550px) {
+  .services {
     height: auto;
     padding: 2rem 1rem;
   }
 
-  .services-container 
-  {
+  .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 0;
   }
 
-  .service-box 
-  {
+  .service-box {
     margin: 0 auto;
     width: 100%;
   }
 
-  .service-box h2 
-  {
+  .service-box h2 {
     font-size: 20px;
   }
 
-  .service-box p 
-  {
+  .service-box p {
     font-size: 16px;
   }
 }
-
-
