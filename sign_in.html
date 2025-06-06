@@ -14,19 +14,32 @@
 
       body {
         height: 100vh;
-        background-color: #e9eafb;
+        background-color: #ffffff;
         display: flex;
         justify-content: right;
         align-items: center;
       }
 
+      #box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9rem;
+        padding: 20px;
+      }
+
+      #image img {
+        width: 100%;
+        height: auto;
+      }
+
       #container {
-        background-color: #f0f8ff;
+        background-color: #d4daf7;
         padding: 40px;
         width: 400px;
         border-radius: 15px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        margin-right: 7rem;
+        margin-right: 8rem;
         transition: transform 0.3s ease;
       }
 
@@ -101,37 +114,83 @@
       span {
         color: red;
       }
+
+      @media (max-width: 1024px) and (min-width: 768px) {
+        #container {
+          padding: 40px;
+          width: 400px;
+          margin-right: 3rem;
+        }
+
+        #box {
+        gap: 1rem;
+        padding: 20px;
+      }
+
+        #image img {
+          width: 100%;
+          height: 80vh;
+        }
+      }
+
+      @media (max-width: 767px) {
+        body {
+          flex-direction: column;
+          justify-content: center;
+          padding: 20px;
+        }
+
+        #box {
+          flex-direction: column;
+          gap: 2rem;
+          padding: 20px;
+        }
+
+        #container {
+          margin-right: 0;
+          width: 100%;
+          padding: 30px;
+        }
+
+        #image {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <form method="post" action="" onsubmit="validate(event)">
-      <div id="container">
-        <h1>Sign In</h1>
-        <label for="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="abc@gmail.com"
-        />
-        <span id="erroremail" class="error"></span>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <span id="errorpassword" class="error"></span>
-
-        <input id="buttonn" type="submit" value="Sign In">
-
-        <div class="sign_up-link">
-          Don't have an account?
-          <a href="sign_up.html">Create one</a>
+      <section id="box">
+        <div id="image">
+          <img src="/images/login.gif" alt="" />
         </div>
-      </div>
+        <div id="container">
+          <h1>Sign In</h1>
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="abc@gmail.com"
+          />
+          <span id="erroremail" class="error"></span>
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+          <span id="errorpassword" class="error"></span>
+
+          <input id="buttonn" type="submit" value="Sign In" />
+
+          <div class="sign_up-link">
+            Don't have an account?
+            <a href="sign_up.html">Create one</a>
+          </div>
+        </div>
+      </section>
     </form>
     <script>
       function validate(event) {
-
-        errorCount = 0;
+        let errorCount = 0;
 
         let email = document.getElementById("email").value.trim();
         let password = document.getElementById("password").value.trim();
@@ -145,10 +204,10 @@
 
         // emailvalidation
         if (email == "") {
-          emailError.textContent = "required email.";
+          emailError.textContent = "Email is required.";
           errorCount++;
         } else if (!emailRegex.test(email)) {
-          emailError.textContent = "Please enter a valid email address.";
+          emailError.textContent = "Didn't match the pattern";
           errorCount++;
         }
 
@@ -156,14 +215,14 @@
 
         //password validation
         if (password == "") {
-          passwordError.textContent = "required password";
+          passwordError.textContent = "Password is requred";
           errorCount++;
         } else if (password.length < 8) {
           passwordError.textContent = "Password must be at least 8 characters.";
           errorCount++;
         }
 
-       if (errorCount > 0) {
+        if (errorCount > 0) {
           event.preventDefault();
           return false;
         }
