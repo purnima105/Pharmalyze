@@ -23,8 +23,8 @@
           <a class="nav-link" href="#services">Services</a>
           <a class="nav-link" href="#about">About Us</a>
           <a class="nav-link" href="#contact">Contact</a>
-          <a href="sign_in.html"><button class="nav-button">Sign In</button></a>
-          <a href="sign_up.html"
+          <a href="sign_in.php"><button class="nav-button">Sign In</button></a>
+          <a href="sign_up.php"
             ><button class="nav-button" id="button2">Sign Up</button></a
           >
         </div>
